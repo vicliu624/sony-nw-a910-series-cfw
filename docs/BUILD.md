@@ -1,6 +1,6 @@
 # Build and release
 
-Project/repository name: `sony-nw-a910-series-cfw`. The local project directory is `C:/Users/VicLi/Documents/Projects/sony-nw-a910-series-cfw`. Existing `A918-…` package names identify the currently supported device and are retained.
+Project/repository name: `sony-nw-a910-series-cfw`. Repository: [vicliu624/sony-nw-a910-series-cfw](https://github.com/vicliu624/sony-nw-a910-series-cfw). Existing `A918-…` package names identify the currently supported device and are retained.
 
 The project centers on Chinese/English localization and reusable firmware research. Theme and program changes are demonstrations. The build supports separate en and zh-CN firmware variants. They include the theme/launcher demonstration; a localization-only or stock-theme profile is not implemented. Read [TECHNICAL](TECHNICAL.md) / [中文](TECHNICAL.zh-CN.md) / [日本語](TECHNICAL.ja.md) before changing resources or targeting another model.
 
@@ -37,7 +37,7 @@ Outputs go only to `dist/<VERSION>/<language>/`, named `A918-<VERSION>-<language
 
 Set VERSION first, then tag the reviewed commit as `v<VERSION>`. The tag must match exactly. Only after both language jobs pass do tag builds create one draft prerelease containing both language packages and language-named verification/checksum files. Alternatively select **Run workflow → draft_release**. A failed build never reaches release creation. Existing release tags are not silently overwritten. Draft releases are intentional while the current firmware has no hardware qualification; publication remains a human decision.
 
-The release package includes the original Sony Windows updater with the generated UPG, a ROM-free APPS tree, corresponding application sources and verification reports. Review Sony/character material redistribution rights before making a draft public. A GitHub source archive is available with each tagged release. The repository currently has no configured remote, so no actual hosted run is implied by local validation.
+The release package includes the original Sony Windows updater with the generated UPG, a ROM-free APPS tree, corresponding application sources and verification reports. Review Sony/character material redistribution rights before making a draft public. A GitHub source archive is available with each tagged release. Hosted build results are available in [GitHub Actions](https://github.com/vicliu624/sony-nw-a910-series-cfw/actions).
 
 ## Version policy
 
