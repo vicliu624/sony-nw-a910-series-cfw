@@ -49,7 +49,7 @@ python scripts/build_release.py --language en
 
 出力先は `dist/<VERSION>/<language>/` です。純正更新ツール、ファームウェア、サンプルプログラム、ソース、検証結果を含みます。ゲームROMや初期化用セーブは含めません。
 
-GitHub Actions は push と PR を検査します。[VERSION](VERSION)と一致する `v<version>` タグ、または手動要求により、ビルド成功後にドラフトのプレリリースを作成します。
+GitHub Actions は push と PR を検査します。[VERSION](VERSION)と一致する `v<version>` タグ、または手動要求により、ビルド成功後に実験版のプレリリースを作成します。
 
 ## ディレクトリ
 

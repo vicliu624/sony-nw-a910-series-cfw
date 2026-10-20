@@ -22,7 +22,7 @@ Read README.md and docs/BUILD.md first. Project directory: sony-nw-a910-series-c
 - Output only under this project: work/ for temporary output, dist/<version>/ for current generated packages. Do not generate deliverables in chat outputs or edit the sibling desktop project as a side effect.
 - Old packages, original installers, device backups and recovery evidence are local/ignored; do not commit ROMs, seed saves or personal data. Preserve known-running rollback packages and R12 failure evidence.
 - Historical docs are docs/archive/. Superseded tooling and local history are archive/. Do not treat their old paths or instructions as active.
-- CI publishes artifacts and draft prereleases only, with ROM tests explicitly excluded. Build/test from clean inputs; no dependency on releases/, archive/ or incidental work files. Cross-toolchain byte reproducibility is not claimed.
+- CI publishes artifacts and experimental prereleases only, with ROM tests explicitly excluded. Build/test from clean inputs; no dependency on releases/, archive/ or incidental work files. Cross-toolchain byte reproducibility is not claimed.
 
 ## Hardware boundary
 

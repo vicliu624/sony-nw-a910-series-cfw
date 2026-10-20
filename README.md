@@ -49,7 +49,7 @@ python scripts/build_release.py --language en
 
 Packages are written to `dist/<VERSION>/<language>/`. They contain Sony's updater, the firmware, example programs, sources and verification reports. Commercial game ROMs and initialization saves are not included.
 
-GitHub Actions checks pushes and pull requests. A `v<version>` tag matching [VERSION](VERSION), or a manual release request, creates a draft prerelease after the builds pass.
+GitHub Actions checks pushes and pull requests. A `v<version>` tag matching [VERSION](VERSION), or a manual release request, creates a experimental prerelease after the builds pass.
 
 ## Layout
 

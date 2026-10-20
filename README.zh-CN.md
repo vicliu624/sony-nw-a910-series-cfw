@@ -49,7 +49,7 @@ python scripts/build_release.py --language en
 
 安装包输出到 `dist/<VERSION>/<language>/`，包含索尼更新程序、固件、示例程序、源码和校验报告，不包含商业游戏 ROM 和初始化存档。
 
-GitHub Actions 会检查推送和 PR。推送与 [VERSION](VERSION) 一致的 `v<版本>` 标签，或手动请求发布，可在构建通过后创建草稿预发布。
+GitHub Actions 会检查推送和 PR。推送与 [VERSION](VERSION) 一致的 `v<版本>` 标签，或手动请求发布，可在构建通过后创建实验性预发布。
 
 ## 目录
 

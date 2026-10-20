@@ -213,7 +213,7 @@ ARM 同族也不等于指令兼容。本目标使用 iD 解释器，不能直接
 
 公开测试包含 3 个容器回归、5 个文字保留／边界回归、17 个不带 ROM 的 ARM 目录夹具、14 个模拟调度、28 个内核解码，另有编译脚本自检。真实 ROM 的开机／保存／新游戏测试需要私有输入，公开 CI 明确跳过，不算通过。它们不能证明实机 USB 交接、掉电、休眠、NAND／FAT 和音质不变；保留音频驱动减少改动范围，但不是音质测量。
 
-[BUILD](BUILD.md) 包含环境、输出与发布命令。VERSION 是工程 SemVer，设备仍为索尼 1.03。CI 矩阵分别生成 en、zh-CN，全部通过后，匹配标签才创建草稿预发布。没有自动刷设备或写 NVP。托管构建记录见 [GitHub Actions](https://github.com/vicliu624/sony-nw-a910-series-cfw/actions)，本地与托管结果分别记录。
+[BUILD](BUILD.md) 包含环境、输出与发布命令。VERSION 是工程 SemVer，设备仍为索尼 1.03。CI 矩阵分别生成 en、zh-CN，全部通过后，匹配标签才创建实验性预发布。没有自动刷设备或写 NVP。托管构建记录见 [GitHub Actions](https://github.com/vicliu624/sony-nw-a910-series-cfw/actions)，本地与托管结果分别记录。
 
 ## 14. 已知故障与恢复限制
 

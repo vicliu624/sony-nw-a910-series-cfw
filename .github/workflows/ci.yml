@@ -7,8 +7,8 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      draft_release:
-        description: Create a draft prerelease from this checkout
+      publish_release:
+        description: Publish an experimental prerelease from this checkout
         type: boolean
         default: false
 
@@ -76,7 +76,7 @@ jobs:
     if: >-
       github.event_name != 'pull_request' &&
       (startsWith(github.ref, 'refs/tags/v') ||
-       (github.event_name == 'workflow_dispatch' && inputs.draft_release))
+       (github.event_name == 'workflow_dispatch' && inputs.publish_release))
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -86,13 +86,13 @@ jobs:
         with:
           pattern: A910-*-${{ github.sha }}
           path: release-assets
-      - name: Create draft experimental release
+      - name: Publish experimental prerelease
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           version=$(cat VERSION)
           mapfile -d '' assets < <(find release-assets -type f -print0)
           gh release create "v$version" "${assets[@]}" \
-            --target "$GITHUB_SHA" --draft --prerelease \
+            --target "$GITHUB_SHA" --prerelease \
             --title "Sony NW-A910 Series CFW $version (experimental)" \
             --notes-file docs/RELEASE_NOTES.md

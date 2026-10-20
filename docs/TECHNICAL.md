@@ -205,7 +205,7 @@ Order: verify original EXE → extract exact inventory → compile → ARM tests
 
 Current public tests: three container regressions, five wording preservation/bounds regressions, 17 ROM-free ARM fixture cases, 14 mocked dispatcher cases, 28 original-kernel decoder cases, plus compiler-script selftests. ROM-based boot/save/reset tests need private inputs and are explicitly skipped in public CI, not counted as passes. Hardware USB handoff, flash reliability, suspend/power loss, NAND/FAT behavior and audio quality have not been proved by these tests. Preserving audio libraries/drivers reduces change scope, not a measurement of unchanged sound.
 
-Use [BUILD](BUILD.md) for dependencies, paths and release commands. VERSION is package SemVer; device Sony version stays 1.03. CI matrix produces en and zh-CN artifacts; only if all builds pass does a matching tag create a draft prerelease. No flashing, NVP writes or physical-device access occurs in CI. Hosted runs are listed in [GitHub Actions](https://github.com/vicliu624/sony-nw-a910-series-cfw/actions). Local and hosted results should be recorded separately.
+Use [BUILD](BUILD.md) for dependencies, paths and release commands. VERSION is package SemVer; device Sony version stays 1.03. CI matrix produces en and zh-CN artifacts; only if all builds pass does a matching tag create a experimental prerelease. No flashing, NVP writes or physical-device access occurs in CI. Hosted runs are listed in [GitHub Actions](https://github.com/vicliu624/sony-nw-a910-series-cfw/actions). Local and hosted results should be recorded separately.
 
 ## 14. Recovery boundaries and rejected assumptions
 
