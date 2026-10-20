@@ -1,0 +1,43 @@
+Sony NW-A918 — English 1.03 / Chiikawa B1 R3
+
+This experimental build combines complete English R2 wording with the approved
+nine Chiikawa characters and B1 meadow icon textures. It has not been tested on
+the device yet. Do not treat an offline preview as a captured device screen.
+
+What is included:
+- English R2 wording: 648 nonempty entries, no missing entries versus Japanese.
+- 81 replacement numbered animation frames and 14 static icon textures.
+- Meadow background composited into the nine icon tiles.
+- Original black regions outside the icon grid remain. Full-screen wallpaper
+  and the light status/text panels shown in the design preview are NOT included.
+
+Install directory:
+C:\Users\VicLi\Documents\Projects\sony-nw-a918\work\install-english-chiikawa-b1-r3
+
+Run FWUpdater.exe in this directory. Keep NW_A91X.UPG, NW-A91X.ini and the DLLs
+beside it. NW_A91X.UPG here is the Chiikawa R3 candidate, not the stock image.
+Use the complete directory, or extract the supplied ZIP before running it.
+
+Connect the NW-A918 using a data-capable USB cable with sufficient battery.
+Handle UAC manually. Check the detected model and follow the Sony updater.
+Keep USB connected throughout updating and follow completion instructions.
+This package targets NW-A918; no A916/A919 hardware validation is claimed.
+
+The firmware version is still 1.03. Reinstalling over an existing 1.03 firmware
+may be rejected by the original updater. No version spoof or forced-upgrade
+bypass is included. If rejected, stop and report the exact message.
+
+Verification:
+- Outer MD5 and encrypted file table validated.
+- Independently extracted using Rockbox upgtool.
+- All 613 rootfs entries compared against English R2.
+- Only dui_tex.dpk and ICX1101_home_anim.dpk differ from English R2.
+- Main executable, wording, audio files, drivers and other files remain R2.
+- Kernel/initrd/upgrade-script components unchanged from English R2.
+- No audio measurements or on-device theme testing performed for this build.
+
+Candidate filename:
+NW-A918_1.03_English_Chiikawa_B1_R3_EXPERIMENTAL.UPG
+
+SHA256:
+cbcdfbed2b91db968956c9a30e5a7e4e22816e9c09c69df6272644023d41694a

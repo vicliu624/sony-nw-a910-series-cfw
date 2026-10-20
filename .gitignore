@@ -1,0 +1,23 @@
+# Generated output and local tools
+/work/
+/dist/
+/tools/
+/.venv/
+__pycache__/
+*.py[cod]
+*.o
+/third_party/rockbox-upgtools/upgtool
+
+# Original/proprietary inputs, old installers, personal data
+/releases/
+/firmware/original/*.exe
+/firmware/experimental/
+/archive/local/
+/archive/assets/
+/archive/scripts/
+/archive/games/
+/archive/README.previous.md
+*.sav
+*.bak
+rom.bin
+new.sav

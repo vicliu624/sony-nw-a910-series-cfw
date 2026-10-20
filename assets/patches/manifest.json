@@ -1,0 +1,45 @@
+{
+  "baseline_upg_sha256": "cfbcc372e2a18f11c12a080c9e5f039333e09175f5db03ac841a4227d3896b32",
+  "patches": [
+    {
+      "path": "./usr/local/bin/gemini-ICX1101",
+      "original_sha256": "a5c94ce492fb7ec9cd7a740d30cb79a1c2b43ee782e2da036a72f57dabdcd177",
+      "result_sha256": "ff9020095c81a19175f84d3cf00ff16a2d6329ad4e6524614bcea3aeda9d32ad",
+      "result_bytes": 5691632,
+      "patch": "0.xor.zlib",
+      "patch_sha256": "96b8b03996f00ea17f8fc94ff163fb2266b95dec9d0b687d983669603961829f"
+    },
+    {
+      "path": "./usr/local/share/gemini/res/wording_res/ICX-COMMON_wording.dpk",
+      "original_sha256": "5fcf08ade749713892649752dfb7201ebb09950387fecc34b1af217c9d1e7102",
+      "result_sha256": "9b8269f86a2b869769b5f438b1d1de02c4e2e9b2b3d8c460f38bd88b86bab89c",
+      "result_bytes": 260080,
+      "patch": "1.xor.zlib",
+      "patch_sha256": "26a0f1138387ef8f85553ace0ab1a9adb4cf0cefe38a5eb4d3a73fedc21a5c72"
+    },
+    {
+      "path": "./usr/local/share/gemini/res/dui_tex/dui_tex.dpk",
+      "original_sha256": "9ea83fcdf1ef76c18bfea6ce6ac0ae8e7e12830d9148d7d4aba76dfaa25f3134",
+      "result_sha256": "d68b46bc0b34b30cb6b14c96e0845c03389c5da0be85ea03070e4ad5939849d9",
+      "result_bytes": 5223408,
+      "patch": "2.xor.zlib",
+      "patch_sha256": "2c9eb94e145aa87121e0bb57aad288562c75dcac075899df11f13f0a7eade688"
+    },
+    {
+      "path": "./usr/local/share/gemini/res/dui_tex/ICX1101_home_anim.dpk",
+      "original_sha256": "d9da1a5813b06968875dff9bcc922310d4991ebf378feb8eb4827ae6bba7df84",
+      "result_sha256": "42c2d13335aa3104d713850556f181fbdc7db342d69facaf7bdb8243c59eaba1",
+      "result_bytes": 956944,
+      "patch": "3.xor.zlib",
+      "patch_sha256": "192aedc05e3533d9ef056961e6687afe2bf8d7d3aa78d3440bd04f217157342d"
+    },
+    {
+      "path": "./etc/init.d/gemini",
+      "original_sha256": "feb319ca95bef84aefe3705a50b691b4a077885b50ec98a886106824101ed6e6",
+      "result_sha256": "75af51f852d9ae30828b7f2e23f993cd3e83ba5669bbc084ed7061edf9fd4cb3",
+      "result_bytes": 3424,
+      "patch": "4.xor.zlib",
+      "patch_sha256": "c4edafe8e8dea18225d8a0eacb4811ce4dfb3eea274feda4fbadde812fda3341"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+Sony NW-A918 — English 1.03 / Chiikawa Dark R4
+
+R3 was installed successfully by the user. A photo confirmed that only the
+icon grid carried the meadow, while Home, item title and playback status bars
+remained original. It also showed all nine baked-in pink frames at once.
+
+R4 changes:
+- Dark navy background inside all icon tiles, better suited to native white text.
+- Fixed pink frames and pale panels removed from all 95 replacement textures.
+- Character size animation retained; actual selection behavior needs testing.
+- Preview grid origin adjusted to about y=28 based on the user photo.
+- Complete English R2 wording retained: 648 nonempty entries.
+
+The native header, item label and bottom playback bar are STILL not replaced.
+This is a visual blending improvement, not full-screen background support.
+The preview is reconstructed from the photograph, not a captured R4 screen.
+
+Run FWUpdater.exe in the matching install-english-chiikawa-dark-r4 directory,
+or extract the entire ZIP and run it there. Keep NW_A91X.UPG and companion
+files beside the updater. Handle UAC manually. Keep the device charged and
+USB connected throughout updating. The version remains 1.03; if same-version
+updating is rejected, report the message rather than forcing it.
+
+No device write was performed while preparing R4. It is not yet hardware-tested.
+Independent Rockbox extraction passed. Only the two texture DPKs differ from
+English R2; application, wording, audio files, drivers and all other contents
+and metadata remain R2. No audio measurement claim is made.
+
+Firmware:
+NW-A918_1.03_English_Chiikawa_Dark_R4_EXPERIMENTAL.UPG
+SHA256:
+c6563968e4cefa1e75c5a7fe178e668d8123b7986b9b3191a110e570de059bbf

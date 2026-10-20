@@ -1,0 +1,6 @@
+{
+  "source": "https://walkman.update.sony.net/fw/pc/A910/NW-A910_V1_03.exe",
+  "installer_sha256": "6f745a8ff3c90b7abcd5ea185e6f51e4598492f6de5bdb3256599c6f43e39701",
+  "original_upg_sha256": "cfbcc372e2a18f11c12a080c9e5f039333e09175f5db03ac841a4227d3896b32",
+  "original_authenticode_verification": "Valid; SONY Corporation; recorded 2026-10-17"
+}

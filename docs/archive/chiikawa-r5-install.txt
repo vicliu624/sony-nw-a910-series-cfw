@@ -1,0 +1,40 @@
+Sony NW-A918 — English 1.03 / Chiikawa Dark R5 Footer
+
+R5 addresses the two native bottom background strips that R3/R4 did not replace.
+It retains the darkened lower trio as accepted by the user in the final preview.
+
+Continuous background slicing (240x320 coordinates):
+- Main icon grid: x=0..239, y=28..243, nine 80x72 numbered textures.
+- Home item-name background: x=0..239, y=244..287, 240x44 DTX.
+- Playback status background: x=0..239, y=288..319, 240x32 DTX.
+
+The background is darkened smoothly starting at y=220, reaching 20% brightness
+at y=244. Every bottom pixel meets at least 7:1 computed contrast with white
+after RGB565 conversion. This is not a physical LCD measurement.
+
+The same master background is cropped for all regions, not redrawn separately.
+Original DTX sizes, headers and DPK indices are retained. The Home top header
+is unchanged. Native item labels, artist, playback and battery indicators are
+still rendered by Sony's original application.
+
+IMPORTANT: indicator_bg.dtx is shared. Other screens' bottom status background
+will also use this dark theme strip. Their foreground text/icons are unchanged.
+
+Resources changed: 81 numbered icon frames, 14 static icon textures, 2 bottom
+strips. Complete English R2 wording is preserved, 648 nonempty records.
+
+Run FWUpdater.exe in work/install-english-chiikawa-dark-r5 or extract the entire
+ZIP and run it there. Keep NW_A91X.UPG, NW-A91X.ini and DLLs together. Handle UAC
+manually. Charge the player and keep USB connected throughout updating. Version
+remains 1.03; if same-version reinstall is rejected, report the message.
+
+Offline verification passed: independent Rockbox extraction; all 613 rootfs
+entries compared; only the two DPK files differ from English R2. Kernel/initrd,
+upgrade script, application, wording, audio libraries and drivers are unchanged.
+Both bottom strips were re-extracted from the final package and verified against
+the exact wallpaper crops. R5 has not yet been tested on the device.
+
+Firmware:
+NW-A918_1.03_English_Chiikawa_Dark_R5_Footer_EXPERIMENTAL.UPG
+SHA256:
+1055a6689c762ad12de0e629461b42823bb812584920b9341f29ca75c4160ec5

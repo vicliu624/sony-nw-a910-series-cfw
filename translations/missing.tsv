@@ -1,0 +1,290 @@
+id	english	simplified_chinese
+494		屏保为“无”时，不能设等待时间。
+497	Go to FM Radio	转到FM收音机
+498	Free / Total:	可用/总容量：
+499	Deleting. Please wait.	正在删除，请稍候。
+500	Deleted.	已删除。
+501	Deleted.\n\nFree space:\n	已删除。\n\n可用容量：\n
+502	Cannot play. File damaged.	无法播放，文件损坏。
+503	File system error. Format via Settings.	文件系统出错。请在设定中格式化。
+504	Not enough space. Delete unused files.	空间不足。请删除多余文件。
+505	Record	录音
+506	Sync Recording	同步录音
+507	Manual Recording	手动录音
+508	Recorded Tracks	录音曲目
+509	Go to Recording	转到录音
+510	Sync Recording	同步录音
+511	Start Sync	开始同步录音
+512	Stop	停止
+513	Bit Rate	比特率
+514	Manual Recording	手动录音
+515	Start Recording	开始录音
+516	Stop	停止
+517	New Folder	新建文件夹
+518	Stop recording, then try again.	请先停止录音，再重试。
+520	Recording cable not connected.	未连接录音线。
+521	Cable disconnected. Recording stopped.	录音线已断开。录音已停止。
+522	Not enough space. Delete unused files.	空间不足。请删除多余文件。
+523	Storage full. Recording stopped. Delete unused files.	空间已满，录音已停止。请删除多余文件。
+524	Cannot record. Limit: 4000 tracks. Delete unused tracks.	无法录音。最多4000首。请删除多余曲目。
+525	Cannot record. Limit: 255 tracks per folder.	无法录音。每个文件夹最多255首。
+526	Folder limit reached. Delete unused folders.	文件夹已达上限。请删除多余文件夹。
+527	Battery too low to record. Please charge.	电量不足，无法录音。请充电。
+528	Recorded Tracks	录音曲目
+529	Delete Folder	删除此文件夹
+530	Delete All Folders	删除全部文件夹
+531	Delete Track	删除此曲目
+533	Music	音乐
+534	ATRAC	ATRAC
+535	Linear PCM	线性PCM
+539	\n\nDelete this track?	\n\n删除此曲目？
+540	\n\nDelete this folder and all its tracks?	\n\n删除此文件夹及全部曲目？
+541	Delete all recorded tracks and folders?	删除全部录音曲目和文件夹？
+542	Some items could not be deleted. Files may be damaged.	部分项目无法删除，文件可能损坏。
+545	Recording Settings	录音设定
+546	Bit Rate	比特率
+547	Bit Rate	比特率
+548	ATRAC 256kbps	ATRAC 256kbps
+549	ATRAC 128kbps	ATRAC 128kbps
+550	ATRAC 64kbps	ATRAC 64kbps
+551	PCM 1411kbps	PCM 1411kbps
+552	No recorded tracks.	无录音曲目。
+554	Cable disconnected	录音线已断开
+555	Not enough space	空间不足
+556	Track limit reached	录音曲目已满
+557	Folder limit reached	文件夹已满
+561	Recorded tracks cannot be bookmarked.	录音曲目无法加书签。
+563	Record	录音
+564	No input detected. Recording did not start.	未检测到输入，录音未开始。
+565	Recording limit: 4000 tracks.	录音曲目已满，最多4000首。
+566	Folder limit: 255 tracks.	文件夹曲目已满，最多255首。
+567	Recording limit reached: time or file size.	录音时长或文件大小已达上限。
+568	Recording Settings	录音设定
+569	Cannot record. File write failed.	无法录音，写入失败。
+570	Cannot record.	无法录音。
+571	Recording limit reached.	录音已达上限。
+572	File size limit	文件大小已达上限
+573	Time limit reached	录音时长已达上限
+574	Folder track limit	文件夹曲目已满
+575	Recording complete	录音完成
+576	Recording failed	录音失败
+577	--------------	--------------
+578	------------	------------
+579	Folder limit reached.	文件夹已达上限。
+580	No audio input	无音频输入
+581	Folder number limit	文件夹编号已满
+582	Cannot record. Folder limit reached. Delete unused folders.	无法录音。文件夹已满，请删除多余文件夹。
+583	Cannot record. Folder limit reached.	无法录音，文件夹已满。
+584	Noise Cancel Adjust	降噪调节
+585	Noise Cancel Adjust	降噪调节
+593	One Seg	One Seg电视
+594	TV	电视
+595	Channel List	频道列表
+596	Program Guide	节目指南
+597	Timed Recording	定时录像
+598	Schedule List	预约列表
+599	TV Recordings	电视录像
+600	TV	电视
+601	Video / TV Settings	视频/电视设定
+602	Video / TV Settings	视频/电视设定
+603	Zoom	缩放
+604	Screen Direction	画面方向
+605	Captions / Info	字幕/信息
+607	TV Audio Track	电视音轨
+608	TV Dual Audio	电视双语音频
+609	Channel Settings	频道设定
+610	Screen Off	关闭屏幕
+611	TV Playback Speed	电视播放速度
+612	Screen Direction	画面方向
+613	Captions / Info	字幕/信息
+614	Show Info	显示信息
+615	TV Captions 1	电视字幕1
+616	TV Captions 2	电视字幕2
+617	Zoom	缩放
+618	Dual Audio	双语音频
+619	Main	主音频
+620	Sub	副音频
+621	Main / Sub	主/副音频
+622	Audio Track	音轨
+623	Audio 1	音频1
+624	Audio 2	音频2
+625	Channel Settings	频道设定
+626	Select Region	选择地区
+627	Auto Scan	自动搜台
+628	Select Channel List	选择频道列表
+629	Select Region	选择地区
+630	Save	保存
+631	No channels selected.	未选择频道。
+632	Save To	保存位置
+633	Channel list exists. Overwrite?	频道列表已存在。覆盖？
+634	Replacing this list deletes some timers. Continue?	覆盖频道列表会删除部分预约。继续？
+635	Channel list saved.	频道列表已保存。
+636	Auto Scan	自动搜台
+637	Channels Found	找到的频道
+638	 items	项
+639	Cancel	取消
+640	Scan Results	搜台结果
+641	No channels found.	未找到频道。
+642	Back	返回
+643	Select Channel List	选择频道列表
+644	Cannot select. No channels saved.	无法选择，未保存频道。
+645	Channel List	频道列表
+646	No channels set. Open Options > Channel Settings.	未设定频道。请从选项菜单进入频道设定。
+647	\n\nDelete this channel?	\n\n删除此频道？
+649	Program Guide	节目指南
+650	Program Details	节目详情
+654	No channels set. Open Options > Channel Settings.	未设定频道。请从选项菜单进入频道设定。
+655	Timer limit reached. Maximum: 10.	预约已满，最多10项。
+656	No timers set.	无预约。
+657	No TV recordings.	无电视录像。
+659	Screen Off	关闭屏幕
+660	Screen Direction	画面方向
+661	Captions / Info	字幕/信息
+662	Audio Track	音轨
+663	Dual Audio	双语音频
+664	Program Details	节目详情
+665	Record This Program	录制此节目
+666	Channel Settings	频道设定
+667	Delete Channel	删除频道
+668	TV Recordings	电视录像
+669	\n\nDelete this video?	\n\n删除此视频？
+671	Videos	视频
+672	Caption List	字幕列表
+673	This video has no captions.	此视频无字幕。
+674	Delete This Video	删除此视频
+675	Caption List	字幕列表
+676	Go to TV	转到电视
+677	Playback Speed	播放速度
+678	Keep This Video	保留此视频
+680	List 1	列表1
+681	List 2	列表2
+682	List 3	列表3
+683	Unused	未使用
+684	Scan	搜台
+685	Playback Speed	播放速度
+686	x1.25	×1.25
+687	x1.5	×1.5
+689	Program info unavailable.	无法获取节目信息。
+690	Watch This Channel	观看此频道
+696	Video protected. Future recordings use a new file.	已保留此视频。后续录像将用新文件。
+697	Timer saved.	预约已保存。
+699	Space running low. Delete unused files.	空间不足。请删除多余文件。
+700	Few video slots left. Delete unused videos.	可录视频数不足。请删除多余视频。
+701	Changed.	已更改。
+702	Recording in progress. Stop via Options first.	正在录像。请先从选项菜单停止录像。
+703	Not enough space to record. Delete unused files.	空间不足，无法录像。请删除多余文件。
+704	Unavailable with repeat recording.	重复录像时无法设定。
+705	Only for repeat recording.	仅重复录像时可设定。
+706	Timer exceeds 8 hours. Split into several timers.	预约超过8小时。请拆分为多项预约。
+707	Cannot record. Limit: 1000 videos. Delete unused videos.	无法录像。最多1000个视频，请删除多余视频。
+708	Storage full. Recording stopped. Delete unused files.	空间已满，录像停止。请删除多余文件。
+709	End time has already passed.	结束时间已过。
+710	Schedule List	预约列表
+711	Recording Timer	录像预约
+712	Channel:	频道：
+713	Date:	日期：
+714	Time:	时间：
+715	Repeat:	重复：
+716	Overwrite:	覆盖：
+717	Save Timer	保存预约
+718	Save Changes	保存更改
+719	Cancel	取消
+720	Channel	频道
+721	Recording Date	录像日期
+722	Recording Time	录像时间
+723	Start Time	开始时间
+724	End Time	结束时间
+725	Repeat Recording	重复录像
+726	Off	关闭
+727	Weekly (Sun)	每周日
+728	Weekly (Mon)	每周一
+729	Weekly (Tue)	每周二
+730	Weekly (Wed)	每周三
+731	Weekly (Thu)	每周四
+732	Weekly (Fri)	每周五
+733	Weekly (Sat)	每周六
+734	Weekly (Mon-Thu)	每周一至周四
+735	Weekly (Mon-Fri)	每周一至周五
+736	Weekly (Mon-Sat)	每周一至周六
+737	Daily	每天
+738	Overwrite Recording	覆盖录像
+739	Timers overlap. Give this one priority?	预约时间重叠。优先执行此项？
+740	Delete this timer?	删除此预约？
+741	Stop recording?	停止录像？
+745	Timer not saved. Discard setup?	预约未保存。放弃设定？
+746	Changes not saved. Discard changes?	更改未保存。放弃更改？
+747	Stop Recording	停止录像
+748	Weekly (Sun)	每周日
+749	Weekly (Mon)	每周一
+750	Weekly (Tue)	每周二
+751	Weekly (Wed)	每周三
+752	Weekly (Thu)	每周四
+753	Weekly (Fri)	每周五
+754	Weekly (Sat)	每周六
+755	Weekly (Mon-Thu)	每周一至周四
+756	Weekly (Mon-Fri)	每周一至周五
+757	Weekly (Mon-Sat)	每周一至周六
+758	Daily	每天
+759	Off	关闭
+760	On	开启
+761	Off	关闭
+763	Program over 8 hours. End set to 8 hours after start.	节目超过8小时。结束时间设为开始后8小时。
+764	End time unknown. Recording: 8 hours. Do not use HOLD until it starts.	未知结束时间，将录制8小时。录像开始前请勿操作HOLD。
+765	Cancel	取消
+766	Schedule Program	预约此节目
+767	Back	返回
+768	No Reception	无法接收
+769	Channel setup incomplete. Discard setup?	频道设定未完成。放弃设定？
+770	Recording stopped.	录像已停止。
+771	Program guide unavailable.	无法获取节目指南。
+772	Standby	待机
+774	Delete This Timer	删除此预约
+775	Select Channel List	选择频道列表
+776	One Seg	One Seg电视
+777	Program info unavailable.	无法获取节目信息。
+779	Sync Clock to TV	与电视广播对时
+780	Clock error. Full program will be recorded. Do not use HOLD until it starts.	时钟有误，将按节目全长录像。开始前请勿操作HOLD。
+781	Failed Recordings	录像失败记录
+782	Failed Recordings	录像失败记录
+783	These programs were not recorded (up to 10 shown).	以下节目录像失败，最多显示10项。
+784	Over 8 hours left. Stops in 8 hours. Do not use HOLD until recording starts.	剩余超过8小时，将在8小时后停止。录像开始前请勿操作HOLD。
+785	Battery Low	电量不足
+787	Video limit reached	电视录像数量已满
+788	Not enough space	空间不足
+789	Audio recording busy	正在录音
+790	Other (USB, etc.)	其他（如USB连接）
+791	Captions So Far	此前字幕
+792	Captions So Far	此前字幕
+793	No earlier captions.	无此前字幕。
+794	Out of Range	无信号
+795	Cannot record while USB is connected.	USB连接时无法录像。
+796	Select a channel.	请设定频道。
+797	Set a date or repeat recording.	请设定录像日期或重复录像。
+798	Set recording time.	请设定录像时间。
+799	(Not Set)	（未设定）
+800	Off Air	暂停播出
+801	Set the end time.	请设定结束时间。
+802	Cannot play. Poor reception or recording too short.	无法播放。可能无信号或录像过短。
+803	Timer list error. Set timers again.	预约列表出错。请重新设定。
+804	Channel and timer list error. Set both again.	频道及预约列表出错。请重新设定。
+805	Off Air	暂停播出
+806	Clock not set. Tune to TV to sync the clock.	时钟未正确设定。请接收电视广播对时。
+807	Clock not set. Check date and time.	时钟未正确设定。请检查日期时间。
+808	No space for timer. Delete unused files and retry.	无空间保存预约。请删除多余文件后重试。
+809	No space for list. Delete unused files and retry.	无空间保存频道列表。请删除多余文件后重试。
+810	Start Log	开始日志
+811	Stop Log	停止日志
+812	Tuner Info	调谐器信息
+813	BER	BER
+814	MER	MER
+815	PER	PER
+816	Mode	模式
+817	Guard Interval	保护间隔
+818	Modulation	调制方式
+819	Interface	接口
+820	User List 1	用户列表1
+821	Record This Program	录制此节目
+822	Start TS	开始TS
+823	Stop TS	停止TS
+824	AMP ON	AMP开启
+825	AMP OFF	AMP关闭

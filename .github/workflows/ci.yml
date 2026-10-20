@@ -1,0 +1,98 @@
+name: Build and release
+
+on:
+  push:
+    branches: [main, master]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      draft_release:
+        description: Create a draft prerelease from this checkout
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: firmware-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [en, zh-CN]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-linux-gnueabi qemu-user e2fsprogs p7zip-full libcrypto++-dev pkg-config zlib1g-dev
+          python -m pip install -r requirements.txt
+      - name: Check source and release version
+        env:
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          python scripts/check_project.py
+          python -m unittest discover -s tests -v
+          if [ "$REF_TYPE" = tag ]; then test "$REF_NAME" = "v$(cat VERSION)"; fi
+      - name: Build independent UPG verifier
+        run: |
+          mkdir -p tools/rockbox-upgtools
+          cp third_party/rockbox-upgtools/* tools/rockbox-upgtools/
+          make -C tools/rockbox-upgtools
+      - name: Build, test and package (no devices)
+        run: python scripts/build_release.py --language ${{ matrix.language }}
+      - name: Upload installation package and verification
+        uses: actions/upload-artifact@v4
+        with:
+          name: A910-${{ matrix.language }}-${{ github.sha }}
+          path: dist/*/*/*
+          if-no-files-found: error
+          retention-days: 30
+      - name: Keep diagnostic reports on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-build-reports-${{ matrix.language }}
+          path: |
+            work/ci/*.json
+            work/ci/capacity-files/allocation.log
+            work/game-apps/*tests.json
+            work/game-apps/kernel-decoder.json
+
+  release:
+    needs: build
+    if: >-
+      github.event_name != 'pull_request' &&
+      (startsWith(github.ref, 'refs/tags/v') ||
+       (github.event_name == 'workflow_dispatch' && inputs.draft_release))
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: A910-*-${{ github.sha }}
+          path: release-assets
+      - name: Create draft experimental release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(cat VERSION)
+          mapfile -d '' assets < <(find release-assets -type f -print0)
+          gh release create "v$version" "${assets[@]}" \
+            --target "$GITHUB_SHA" --draft --prerelease \
+            --title "Sony NW-A910 Series CFW $version (experimental)" \
+            --notes-file docs/RELEASE_NOTES.md

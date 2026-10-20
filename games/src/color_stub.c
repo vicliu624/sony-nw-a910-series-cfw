@@ -1,0 +1,2 @@
+#include "color.h"
+int color_open(void){return 0;}void color_close(void){}int color_status(void){return 7;}void color_tick(uint32_t x){(void)x;}const uint16_t*color_pixels(void){return 0;}int color_visible(void){return 0;}void color_button(unsigned a,int b){(void)a;(void)b;}void color_buttons_clear(void){}int color_input_pending(void){return 0;}int color_save(void){return 0;}int color_new_game(void){return 0;}int color_restore_backup(void){return 0;}
