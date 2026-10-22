@@ -32,8 +32,14 @@ sony() {
 }
 trap 'sony' HUP INT TERM
 fup=$(/usr/local/bin/nvpflag -x fup) || sony
-# Only an explicitly cleared update request is eligible.
-[ "$fup" = 0x00000000 ] || sony
+# Sony's update request is the exact fWUp word, not every nonzero word.
+# A zero-only test also rejects the erased 0xFFFFFFFF value. Validate the
+# complete read, defer pending updates to Sony, and never write the NVP flag.
+case "$fup" in
+ 0x70555766) sony;;
+ 0x????????) case "${fup#0x}" in *[!0-9a-fA-F]*) sony;; esac;;
+ *) sony;;
+esac
 /usr/local/bin/a918-boot --usb-present
 [ "$?" = 1 ] || sony
 /usr/local/bin/a918-boot --choose

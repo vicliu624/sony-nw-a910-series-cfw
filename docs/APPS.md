@@ -4,6 +4,8 @@ This is a demonstration of device customization, not the main project purpose or
 
 The launcher scans `APPS/<id>/app.ini` on the visible WALKMAN data volume. At most 32 valid app directories are listed, sorted by ID, with five rows per page. Select RESCAN after changing files. Applications are independent of the firmware package.
 
+Manifest lines may use LF or Windows CRLF. Missing apps do not suppress the startup WALKMAN/APPS chooser: an empty list still offers RESCAN and RETURN TO WALKMAN. See the [startup investigation](APP_STARTUP.md) for the alpha.3 fixes and validation limits.
+
 ```ini
 api=1
 id=tetris

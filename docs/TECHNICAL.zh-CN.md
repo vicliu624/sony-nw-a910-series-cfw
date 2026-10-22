@@ -179,9 +179,11 @@ python scripts/update_resource_patch.py --original-upg work/ci/updater/NW_A91X.U
 
 rootfs 启动脚本在索尼程序之前调用 `/usr/local/bin/a918-boot-dispatch`，用 A918_BOOT_BYPASS 防止递归。调度脚本对应 `games/boot-dispatch-apps.sh`，小型界面为 a918-boot，保留原紧急启动与索尼路径。不改九宫格／OPTION；早期 R6／R7 直接挂主菜单的实验曾卡死，已放弃，不要重用。
 
-仅 `nvpflag -x fup` 明确返回 `0x00000000` 才允许入口；更新标志未知／待更新、USB 接入／状态不可读时转索尼。读标志不等于可以写 NVP。默认 Walkman 超时路径不挂载用户盘。显式选择 APPS 后，确认没有已有数据盘挂载、/tmp 确为 ramfs/tmpfs，再把 `/dev/mtdblock/2` 以 rw,nosuid,nodev,noexec 私有挂载到 `/tmp/a918-game-disk`，并重复检查 USB。
+`nvpflag -x fup` 必须成功返回完整的八位十六进制值；明确的更新请求 `0x70555766`、读取失败或格式异常时转索尼。alpha.3 修正了只允许全零的限制，`0xFFFFFFFF` 等非更新值不会再因此跳过入口；尚未读到故障实机的标志，不能认定这是该机器的唯一原因。USB 接入／状态不可读时仍转索尼。读标志不等于可以写 NVP。默认 Walkman 超时路径不挂载用户盘。显式选择 APPS 后，确认没有已有数据盘挂载、/tmp 确为 ramfs/tmpfs，再把 `/dev/mtdblock/2` 以 rw,nosuid,nodev,noexec 私有挂载到 `/tmp/a918-game-disk`，并重复检查 USB。
 
 应用清单位于 APPS/<id>/app.ini，检查长度／CRC 和基础 ARM ELF 后复制到 `/tmp/a918-app-runtime/program`，以自身目录为 cwd。心跳进程组监控处理普通退出和卡住，返回索尼前卸载。卸载三次失败则 exit 91，不启动索尼，避免双重访问；用户态超时救不了不可中断内核 I/O。程序没有安全沙箱。完整接口见 [APPS](APPS.md)。
+
+alpha.3 同时支持清单的 LF／Windows CRLF 换行，并新增实际 ARM 选择器／俄罗斯方块执行测试、RAM 装载与独立监控的联动测试。本地私有 ROM 测试覆盖彩色 iD 的按键、菜单、保存退出、新游戏和恢复备份；CI 仍不包含 ROM。REA／Ghidra 已核对原厂 USB ioctl、Gemini 的显示初始化及内核 QFB 处理。证据与实机验证边界见 [启动调查](APP_STARTUP.md)。这些测试不代替播放器实测。
 
 App、ROM、存档放在用户盘，避免系统包增长和反复刷写。iD 例子把 4MiB ROM 读入 RAM，校验 CRC，模拟闪存修改存入 state 而不覆盖 rom.bin。保存用临时文件、fsync、rename、目录 fsync；最后同步失败时正式文件可能已替换。并非每次保存都生成备份，FAT 断电耐久性未实测，不应保证存档不丢或应用永不拖死系统。
 

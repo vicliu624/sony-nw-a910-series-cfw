@@ -2,12 +2,13 @@
 from pathlib import Path
 import tempfile,subprocess,os,json,hashlib
 ROOT=Path(__file__).resolve().parents[1];source=(ROOT/'games/boot-dispatch-apps.sh').read_text();cases=[]
-for name in ['normal','no_apps','Walkman','pending_update','unknown_update','USB_connected','bad_RAM_mount','occupied_disk','mount_failed','stage_failed','app_crash','unmount_failed','USB_after_game']:
+flag_values={'pending_update':'0x70555766','unknown_update':'garbage','erased_update':'0xFFFFFFFF','nonzero_flag':'0x1234aBcD','short_flag':'0x0000000','long_flag':'0x000000000','invalid_hex':'0x0000000G','empty_flag':''}
+for name in ['normal','no_apps','Walkman','pending_update','unknown_update','erased_update','nonzero_flag','short_flag','long_flag','invalid_hex','empty_flag','update_read_failed','chooser_failed','USB_connected','bad_RAM_mount','occupied_disk','mount_failed','stage_failed','app_crash','unmount_failed','USB_after_game']:
  with tempfile.TemporaryDirectory(prefix='a918-app-dispatch-') as tmp:
   r=Path(tmp);bin=r/'bin';bin.mkdir();disk=r/'disk';ram=r/'ram';trace=r/'trace';proc=r/'mounts'
   proc.write_text('none /tmp '+('ext2'if name=='bad_RAM_mount'else'ramfs')+' rw 0 0\n'+('/dev/mtdblock/2 /contents vfat rw 0 0\n'if name=='occupied_disk'else''))
   def script(path,s):path.write_text('#!/bin/sh\n'+s);path.chmod(0o755)
-  script(bin/'nvpflag','echo '+('0x70555766'if name=='pending_update'else'garbage'if name=='unknown_update'else'0x00000000')+'\n')
+  script(bin/'nvpflag','echo '+flag_values.get(name,'0x00000000')+'\n'+('exit 1\n'if name=='update_read_failed'else''))
   script(bin/'sony','echo sony >> "$TRACE"\n')
   script(bin/'mount',f'echo mount >> "$TRACE"\nexit {1 if name=="mount_failed"else 0}\n')
   script(bin/'umount',f'echo umount >> "$TRACE"\nexit {1 if name=="unmount_failed"else 0}\n')
@@ -15,7 +16,7 @@ for name in ['normal','no_apps','Walkman','pending_update','unknown_update','USB
 case "$1" in
  --run-app) "{ram}/program" --games;exit $?;;
  --usb-present) if [ '{name}' = USB_connected ] || {{ [ '{name}' = USB_after_game ] && [ -f "$DONE" ]; }}; then exit 0; else exit 1; fi;;
- --choose) exit {0 if name=='Walkman'else 90};;
+ --choose) exit {0 if name=='Walkman'else 77 if name=='chooser_failed'else 90};;
  --games) if [ -f "$DONE" ] || [ '{name}' = no_apps ]; then exit 0; else touch "$DONE";exit 100;fi;;
  --stage) [ '{name}' != stage_failed ] || exit 1
  echo '{r}' > '{ram}/cwd'
@@ -32,6 +33,11 @@ esac
   if name=='unmount_failed':assert p.returncode==91 and 'sony'not in lines and lines.count('umount')==3,(name,lines,p.stderr)
   else:assert p.returncode==0 and lines[-1]=='sony',(name,p.returncode,lines,p.stderr)
   if name in ['pending_update','unknown_update','USB_connected','Walkman','bad_RAM_mount','occupied_disk']:assert 'mount'not in lines,(name,lines)
+  if name in ['pending_update','unknown_update','short_flag','long_flag','invalid_hex','empty_flag','update_read_failed','USB_connected']:assert 'boot --choose'not in lines and 'mount'not in lines,(name,lines)
+  if name in ['erased_update','nonzero_flag']:assert 'boot --choose'in lines and 'app'in lines,(name,lines)
+  if name in ['no_apps','chooser_failed']:assert 'boot --choose'in lines,(name,lines)
+  if name=='no_apps':assert 'boot --games'in lines and 'app'not in lines,(name,lines)
+  if name=='chooser_failed':assert 'mount'not in lines,(name,lines)
   if name in ['normal','app_crash']:assert 'app'in lines and 'umount'in lines and lines.index('umount')<lines.index('sony'),lines
   if name=='stage_failed':assert 'app'not in lines and 'umount'in lines,lines
   assert not any('mtdblock/1'in x or 'mkfs'in x or 'fsck'in x for x in lines)

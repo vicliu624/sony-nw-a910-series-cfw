@@ -8,7 +8,7 @@ Simplified Chinese and English interfaces for Japanese Sony NW-A910 players, wit
 | :---: | :---: |
 | <img src="assets/images/a918-custom-interface.jpg" height="400" alt="English interface and custom theme"> | <img src="assets/images/a918-tetris.png" height="400" alt="Tetris running on the player"> |
 
-Photos from earlier A918 builds. The current release still needs hardware testing.
+Photos from earlier A918 builds. The English alpha.3 startup selector and apps also have a successful NW-A918 user test report.
 
 > **Flashing can cause data loss or leave the player unable to boot. Back up your data first. This firmware is experimental; read the [safety notes](docs/SAFETY.md).**
 
@@ -28,7 +28,7 @@ The localization, resource changes and custom programs run on Sony's original sy
 
 ## Compatibility
 
-The firmware is based on Sony A910 version 1.03. Only NW-A918 has device-test reports; NW-A916 and NW-A919 are untested. Earlier localization and theme builds ran on A918. The current version with the game launcher has not completed hardware testing.
+The firmware is based on Sony A910 version 1.03. Only NW-A918 has device-test reports; NW-A916 and NW-A919 are untested. Earlier localization and theme builds ran on A918. The user confirmed the English alpha.3 app list and installed apps work on NW-A918. The Chinese build and other hardware behaviors remain unverified.
 
 CI produces separate Simplified Chinese (`zh-CN`) and English (`en`) packages. Each uses one language; there is no on-device language switch. Current packages include the example theme and launcher. Game ROMs must be supplied separately.
 

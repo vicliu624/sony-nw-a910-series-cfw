@@ -16,7 +16,7 @@ static unsigned crcbytes(unsigned crc,const unsigned char*p,int n){while(n--){cr
 static int parse_number(const char*s,unsigned*out,int base){unsigned v=0;int n=0;while(*s){int d=*s>='0'&&*s<='9'?*s-'0':*s>='a'&&*s<='f'?*s-'a'+10:-1;if(d<0||d>=base||v>(0xffffffffu-d)/(unsigned)base)return 0;v=v*base+d;s++;n++;}if(!n)return 0;*out=v;return 1;}
 static int readmanifest(const char*id,struct launcher_entry*e){
  char path[192],buf[513];if(!validid(id))return 0;apppath(path,id,"app.ini");int fd=SC(5,path,0100000,0);if(fd<0)return 0;int n=SC(3,fd,buf,513);SC(6,fd,0,0);if(n<=0||n>512)return 0;buf[n]=0;unsigned seen=0;
- for(int start=0;start<n;){int end=start;while(end<n&&buf[end]!='\n')end++;buf[end]=0;char*line=buf+start;char*v=line;while(*v&&*v!='=')v++;if(!*v)return 0;*v++=0;unsigned bit=0;
+ for(int start=0;start<n;){int end=start;while(end<n&&buf[end]!='\n')end++;buf[end]=0;if(end>start&&buf[end-1]=='\r')buf[end-1]=0;char*line=buf+start;char*v=line;while(*v&&*v!='=')v++;if(!*v)return 0;*v++=0;unsigned bit=0;
   if(same(line,"api")){bit=1;if(!same(v,"1"))return 0;}
   else if(same(line,"id")){bit=2;if(!same(v,id))return 0;copystr(e->id,v);}
   else if(same(line,"name")){bit=4;int k=0;while(v[k]){if(k>=32||!((v[k]>='A'&&v[k]<='Z')||(v[k]>='0'&&v[k]<='9')||v[k]==' '||v[k]=='-'))return 0;k++;}if(!k)return 0;copystr(e->name,v);}

@@ -150,9 +150,11 @@ def main():
         (folder / 'app.ini').write_text(f'api=1\nid={app_id}\nname={title}\nversion={args.version}\nexec=app\nbytes={len(data)}\ncrc32={zlib.crc32(data):08x}\n', encoding='ascii')
     run(sys.executable, 'games/test-disk-apps.py', '--without-rom')
     run(sys.executable, 'games/test-app-dispatch.py')
+    run(sys.executable, 'games/test-launcher-arm.py')
     base = (updater / 'NW_A91X.UPG').read_bytes()
     (ROOT / 'work/decrypted-1.bin').write_bytes(unpack(base)[2][1])
     run(sys.executable, 'games/check-apps-kernel-abi.py')
+    run(sys.executable, 'games/check-apps-elf-loader.py')
     output, changed = firmware(base, args.language)
     destination = ROOT / 'dist' / args.version / args.language
     require(not destination.exists(), 'Output already exists; choose a clean dist directory')
@@ -177,7 +179,7 @@ def main():
     shutil.copytree(ROOT / 'docs', stage / 'source/docs')
     for name in ('VERSION', 'requirements.txt', 'THIRD_PARTY.md', 'README.md', 'README.zh-CN.md', 'README.ja.md', 'AGENTS.md', 'CHANGELOG.md', '.gitignore', '.gitattributes'):
         shutil.copy2(ROOT / name, stage / 'source' / name)
-    for name in ('app-tests.json', 'dispatch-tests.json', 'kernel-decoder.json'):
+    for name in ('app-tests.json', 'dispatch-tests.json', 'launcher-arm-tests.json', 'elf-loader-tests.json', 'kernel-decoder.json'):
         shutil.copy2(ROOT / 'work/game-apps' / name, stage / name)
     shutil.copy2(WORK / 'capacity.json', stage / 'capacity.json')
     shutil.copy2(WORK / ('wording-' + args.language + '.json'), stage / 'wording.json')

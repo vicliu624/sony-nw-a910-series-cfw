@@ -173,9 +173,11 @@ python scripts/update_resource_patch.py --original-upg work/ci/updater/NW_A91X.U
 
 rootfsの起動スクリプトからSony起動前にa918-boot-dispatchを呼び、A918_BOOT_BYPASSで再帰を防ぎます。元の緊急・Sony経路を保ちます。ホーム9項目とOPTIONにはフックしません。R6／R7のホームフック実験はフリーズを起こして廃止したため、再利用しません。
 
-`nvpflag -x fup`が明示的に`0x00000000`のときだけ選択画面へ進みます。不明／更新中／USB接続／状態読み取り失敗ならSonyへ渡します。読むことはNVP書き込みの許可ではありません。既定WALKMANはデータをマウントしません。APPS選択後、既存マウントと/tmpのramfs/tmpfsを確認し、`/dev/mtdblock/2`を`/tmp/a918-game-disk`へrw,nosuid,nodev,noexecで私有マウント、USBを再確認します。
+`nvpflag -x fup`の読み取り成功と、`0x`に続く8桁の16進値を要求します。更新要求`0x70555766`、形式異常、読み取り失敗はSonyへ渡します。alpha.3ではゼロだけを許可していた制限を修正し、`0xFFFFFFFF`などの非更新値でも選択画面へ進めます。問題の実機の値は未確認で、唯一の原因と断定していません。USB接続／状態読み取り失敗もSonyへ渡します。読むことはNVP書き込みの許可ではありません。既定WALKMANはデータをマウントしません。APPS選択後、既存マウントと/tmpのramfs/tmpfsを確認し、`/dev/mtdblock/2`を`/tmp/a918-game-disk`へrw,nosuid,nodev,noexecで私有マウント、USBを再確認します。
 
 APPS/<id>/app.iniを読み、長さ・CRCと基本ELFを検査してRAMの`/tmp/a918-app-runtime/program`へコピーします。cwdはアプリ自身のフォルダー。プロセスグループの心拍で通常の停止を監視します。Sonyへ戻す前のアンマウントが3回失敗するとexit 91でSonyを起動せず二重アクセスを防ぎます。シェルのタイムアウトは中断不能なカーネルI/Oを救えません。サンドボックスはありません。[APPS](APPS.md)を参照してください。
+
+alpha.3はLF／Windows CRLFの両方に対応し、実際のARM選択器・Tetris実行とRAM配置・監視の連携テストを追加しました。ローカルの私有ROMテストではカラーiDのボタン、メニュー、保存終了、新規ゲーム、バックアップ復元を確認します。CIにROMは含みません。REA／Ghidraで純正USB ioctl、Gemini表示初期化、カーネルQFB処理を確認しました。証拠と未完了の実機検証は[起動調査](APP_STARTUP.md)に記録しています。実機検証の代わりにはなりません。
 
 ROM／プログラム／セーブをユーザー領域に置き、システム容量増加と再書き込みを避けます。iDは4MiB ROMをRAMに読み、CRC検査後、変更をstateに保存しrom.binを上書きしません。保存は一時ファイル→fsync→rename→ディレクトリfsync。最後の失敗は置換後に起こり得ます。毎保存のバックアップではなく、FATの停電耐性も未検証です。
 
